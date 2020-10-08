@@ -1,6 +1,8 @@
 require "bundler/setup"
 require "chaos/rb"
 
+Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
@@ -12,3 +14,5 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+RSpec::Matchers.define_negated_matcher :avoid_changing, :change
