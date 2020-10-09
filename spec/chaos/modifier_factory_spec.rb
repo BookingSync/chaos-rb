@@ -2,7 +2,7 @@ RSpec.describe Chaos::ModifierFactory do
   describe "#build_module" do
     subject(:prepend_and_call) do
       target.prepend(build_module)
-      target.new(sentinel).public_send(method_name)
+      target.new(sentinel).public_send(method_name, Object.new)
     end
     subject(:build_module) { modifier_factory.build_module(injection) }
 
@@ -35,7 +35,7 @@ RSpec.describe Chaos::ModifierFactory do
           @called = false
         end
 
-        def call
+        def call(_useless_argument)
           @called = true
         end
 
@@ -70,8 +70,8 @@ RSpec.describe Chaos::ModifierFactory do
             @sentinel = sentinel
           end
 
-          def call
-            sentinel.call
+          def call(placeholder)
+            sentinel.call(placeholder)
           end
         end
       end
@@ -151,8 +151,8 @@ RSpec.describe Chaos::ModifierFactory do
             @sentinel = sentinel
           end
 
-          def call
-            sentinel.call
+          def call(placeholder)
+            sentinel.call(placeholder)
           end
         end
       end
@@ -232,8 +232,8 @@ RSpec.describe Chaos::ModifierFactory do
             @sentinel = sentinel
           end
 
-          def call
-            sentinel.call
+          def call(placeholder)
+            sentinel.call(placeholder)
           end
         end
       end
