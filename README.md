@@ -2,7 +2,7 @@
 
 Bring [chaos engineering](https://en.wikipedia.org/wiki/Chaos_engineering) to your Ruby apps - destroy production for fun and profit :).
 
-If you want to introduce some instability to your application in a controlled - way and see what's going to happen (verifying alerts, chekcing what metrics are going to be collected etc.), this is a gem for you.
+If you want to introduce some instability to your application in a controlled - way and see what's going to happen (verifying alerts, checking what metrics are going to be collected etc.), this is a gem for you.
 
 ## Installation
 
